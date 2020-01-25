@@ -4,14 +4,13 @@ package fede.algo;
 public class Prime {
 
 	public static void main(String[] args) {
-		int n = 50;
+		int n = 7;
 		int[] primes = GetPrimes(n);
 		String[] primesStrings = new String[primes.length];
 		for (int i = 0; i < primes.length; i++) {
 			primesStrings[i] = String.valueOf(primes[i]);
 		}
 		System.out.println("["+String.join(",", primesStrings)+"]");
-
 	}
 
 	
@@ -21,17 +20,19 @@ public class Prime {
 		
 		int k = 0;
 		for (int i = 1; i < n+1; i++) {
-			if(IsMultipleOfAny(i, primes) ) continue;
+			if(isMultipleOfAnyOfTheese(i, primes) ) continue;
 			else {
 				primes[k] = i;
 				k++;
 			} 
 		}
-		return primes;
+		int [] r = new int[k];
+		System.arraycopy(primes, 0, r, 0, k);
+		return r;
 		
 	}
 	
-	public static boolean IsMultipleOfAny(int n, int[] numbers) 
+	public static boolean isMultipleOfAnyOfTheese(int n, int[] numbers) 
 	{
 		for (int i = 1; i < numbers.length; i++) {
 			if(numbers[i]== 0) break;

@@ -1,1 +1,1 @@
-# ExercisesAlgoriths
+# Exercises Algorithms
