@@ -25,7 +25,7 @@ class TestAlgorithm {
       });
    }
 	
-	void testPrime(int number, int[] expected) 
+	void testPrime(int number, int[] expected)
 	{
 		int[] primes = Prime.GetPrimes(number);
 		assertArrayEquals(expected, primes);

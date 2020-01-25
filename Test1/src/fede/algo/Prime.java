@@ -1,16 +1,13 @@
 package fede.algo;
 
+import java.util.Arrays;
 
 public class Prime {
 
 	public static void main(String[] args) {
 		int n = 7;
 		int[] primes = GetPrimes(n);
-		String[] primesStrings = new String[primes.length];
-		for (int i = 0; i < primes.length; i++) {
-			primesStrings[i] = String.valueOf(primes[i]);
-		}
-		System.out.println("["+String.join(",", primesStrings)+"]");
+		System.out.println(Arrays.toString(primes));
 	}
 
 	
@@ -20,7 +17,7 @@ public class Prime {
 		
 		int k = 0;
 		for (int i = 1; i < n+1; i++) {
-			if(isMultipleOfAnyOfTheese(i, primes) ) continue;
+			if(isMultipleOfAnyOfTheese(i, primes)) continue;
 			else {
 				primes[k] = i;
 				k++;
