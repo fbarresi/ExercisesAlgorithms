@@ -24,6 +24,13 @@ class TestAlgorithm {
          { 7, new int[] {1,2,3,5,7} },
       });
    }
+   
+   Collection<Object[]> testCasesMaxsum() {
+	      return Arrays.asList(new Object[][] {
+	    	 { new int[] {1,2,3}, 6 },
+	         { new int[] {-11,-2,3,5,-7}, 8 },
+	      });
+	   }
 	
 	void testPrime(int number, int[] expected)
 	{
@@ -31,10 +38,23 @@ class TestAlgorithm {
 		assertArrayEquals(expected, primes);
 	}
 
+	void testMaxsum(int[] numbers, int expected) 
+	{
+		int maxSum = MaxSum.GetMaxSum(numbers);
+		assertEquals(expected, maxSum);
+	}
+	
 	@Test
 	void runTestPrime() {
 		for (Object[] args : testCasesPrimes()) {
 			testPrime((int)args[0], (int[])args[1]);
+		}
+	}
+	
+	@Test
+	void runTestMaxSum() {
+		for (Object[] args : testCasesMaxsum()) {
+			testMaxsum((int[])args[0], (int)args[1]);
 		}
 	}
 }
