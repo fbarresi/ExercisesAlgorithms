@@ -29,6 +29,7 @@ class TestAlgorithm {
 	      return Arrays.asList(new Object[][] {
 	    	 { new int[] {1,2,3}, 6 },
 	         { new int[] {-11,-2,3,5,-7}, 8 },
+	         { new int[] {-13, 25, 34, 12, -3, 7, -87, 28, -77, 11}, 75},
 	      });
 	   }
    

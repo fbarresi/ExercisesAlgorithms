@@ -6,16 +6,8 @@ public class CountSort {
 
 	public static void main(String[] args) 
 	{
-		int[] sorted;
-		try {
-			sorted = Sort(new int[] {-1,2,3,5,1,2});
-			System.out.println(Arrays.toString(sorted));
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-
+		int[] sorted = Sort(new int[] {-1,2,3,5,1,2});
+		System.out.println(Arrays.toString(sorted));
 	}
 	
 	public static int[] Sort(int[] numbers) 
