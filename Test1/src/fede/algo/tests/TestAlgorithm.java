@@ -35,7 +35,7 @@ class TestAlgorithm {
    Collection<Object[]> testCasesCountSort() {
 	      return Arrays.asList(new Object[][] {
 	    	 { new int[] {1,2,3}, new int[] {1,2,3} },
-	         { new int[] {-11,-2,3,5,7}, new int[] {-11,-7,-2,3,5} },
+	         { new int[] {-11,-2,3,5,-7}, new int[] {-11,-7,-2,3,5} },
 	      });
 	   }
 	

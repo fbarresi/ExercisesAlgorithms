@@ -8,7 +8,7 @@ public class CountSort {
 	{
 		int[] sorted;
 		try {
-			sorted = Sort(new int[] {1,2,3,5,1,2});
+			sorted = Sort(new int[] {-1,2,3,5,1,2});
 			System.out.println(Arrays.toString(sorted));
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -18,15 +18,16 @@ public class CountSort {
 
 	}
 	
-	public static int[] Sort(int[] numbers) throws Exception 
+	public static int[] Sort(int[] numbers) 
 	{
-		int max = GetMax(numbers);
-		if(max <= 0) throw new Exception("Max element < 0");
+		int[] minMax = GetMinMax(numbers);
+		int max = minMax[1];
+		int min = minMax[0];
 		int[] sorted = new int[numbers.length];
-		int[][] traces = new int[max+1][1];
+		int[][] traces = new int[max-min+1][1];
 		
 		for (int i = 0; i < numbers.length; i++)
-			traces[numbers[i]][0]++;
+			traces[numbers[i]-min][0]++;
 		
 		int sum = traces[0][0];
 		for (int i = 1; i < traces.length; i++)
@@ -37,18 +38,22 @@ public class CountSort {
 		
 		for (int i = 0; i < numbers.length; i++) 
 		{
-			sorted[traces[numbers[i]][0]-1] = numbers[i];
-			traces[numbers[i]][0]--;
+			sorted[traces[numbers[i]-min][0]-1] = numbers[i];
+			traces[numbers[i]-min][0]--;
 		}
 		return sorted;
 	}
 	
-	private static int GetMax(int[] numbers)
+	private static int[] GetMinMax(int[] numbers)
 	{
 		int max = Integer.MIN_VALUE;
+		int min = Integer.MAX_VALUE;
 		for (int i = 0; i < numbers.length; i++)
+		{	
 			if(numbers[i]>max) max = numbers[i];
-		return max;
+			if(numbers[i]<min) min = numbers[i];
+		}
+		return new int[] {min, max};
 	}
 
 }
