@@ -4,8 +4,8 @@ package fede.algo;
 public class MaxSum {
 
 	public static void main(String[] args) {
-		int primes = GetMaxSum(new int[] {-11,-2,3,5,-7,10,10,-100});
-		System.out.println(primes);
+		int numbers = GetMaxSum(new int[] {-11,-2,3,5,-7,10,10,-100});
+		System.out.println(numbers);
 	}
 	
 	public static int GetMaxSum(int[] numbers) 
