@@ -1,0 +1,16 @@
+class util
+{
+	public int kgV(int a, int b)
+	{
+		return a*b/ggT(a, b);
+	}
+	
+	public int ggT(int a, int b)
+	{
+		if(b == 0) return a;
+		else return ggT(b, a%b);
+	}
+}
+//Test
+Dump(new util().kgV(4, 6));
+Dump(new util().ggT(4, 6));

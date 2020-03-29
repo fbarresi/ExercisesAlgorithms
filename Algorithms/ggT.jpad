@@ -1,0 +1,26 @@
+class util
+{
+	public int ggT(int a, int b)
+	{
+		if(b == 0) return a;
+		else return ggT(b, a%b);
+	}
+
+	public int ggTNonRecursive(int a, int b)
+	{
+		int r;
+		do
+		{
+			r = a%b;
+			a = b;
+			b = r;
+		}while(r != 0);
+		return a;
+	}
+}
+//Test
+
+Dump(new util().ggT(12, 18));
+Dump(new util().ggTNonRecursive(12, 18));
+
+	

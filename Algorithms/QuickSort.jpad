@@ -1,0 +1,47 @@
+class QuickSort {
+
+	public void Sort(int[] a)
+	{
+		Sort(a, 0, a.length-1);
+	}
+	public void Sort(int[] a, int start, int end) 
+	{
+		if(end > start)
+		{				
+			int part = Partition(a, start, end);
+			Sort(a, start, part-1);
+			Sort(a, part+1, end);
+		}
+	}
+
+	private int Partition(int[] a, int start, int end)
+	{
+		int pivot = a[start], p_index = start-1;
+		for(int i = start; i<=end; i++)
+		{
+			if(a[i]<=pivot)
+			{
+				p_index++;
+				Swap(a, p_index, i); 
+			}
+		}
+		Swap(a, p_index, start);
+		return p_index;
+	}
+	
+	private void Swap(int[] a, int x, int y)
+	{
+		int temp = a[x];
+		a[x] = a[y];
+		a[y] = temp;
+	}
+}
+//Test
+
+int[] numbers = new int[] {-1,2,3,5,1,2,8};
+Dump(numbers, "Numbers");
+new QuickSort().Sort(numbers);
+Dump(numbers, "Sorted");
+
+
+	

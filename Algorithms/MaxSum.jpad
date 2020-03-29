@@ -1,0 +1,29 @@
+class MaxSum {
+
+	public int GetMaxSum(int[] numbers) 
+	{
+		int max = 0;
+		int gaps = 0;
+		int lastGotIndex = 0;
+		for (int i = 0; i < numbers.length; i++) 
+		{
+			if(max+numbers[i]+gaps > max)
+			{
+				max= max + numbers[i] + gaps;
+				lastGotIndex = i;
+				gaps = 0;
+			}
+			else if(lastGotIndex != 0) 
+			{
+				gaps += numbers[i];
+			}
+		}
+		return max;
+	}
+}
+
+int[] numbers = new int[] {-11,-2,3,5,-7,10,10,-100};
+Dump(numbers, "Numbers");
+int maxSum = new MaxSum().GetMaxSum(numbers);
+Dump(maxSum, "MaxSum");
+		

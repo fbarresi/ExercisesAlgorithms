@@ -1,0 +1,66 @@
+class HeapSort {
+
+	public void Sort(int[] a)
+	{
+		Sort(a, 0, a.length-1);
+	}
+	private void Sort(int[] a, int start, int end) 
+	{
+		BuildHeap(a, start, end);
+		for(int i = end; i > start; i--)
+		{
+			Swap(a, i, start);
+			Heapify(a, start, i-1, start);
+		}
+	}
+
+	private void BuildHeap(int[] a, int start, int end)
+	{
+		int n = end-start+1;
+		for(int i = start+(n-2)/2; i >= start; i--)
+		{
+			Heapify(a, start, end, i);
+		}
+	}
+	
+	private void Heapify(int[] a, int start, int end, int root)
+	{
+		int biggest, left = start+(2*(root-start))+1, right = start+(2*(root-start))+2;
+		if(left<= end && a[left] > a[root])
+		{
+			biggest = left;	
+		}
+		else
+		{
+			biggest = root;
+		}
+		if(right <= end && a[right] > a[biggest])
+		{
+			biggest = right;
+		}
+		if(biggest != root)
+		{
+			Swap(a, root, biggest);
+			Heapify(a, start, end, biggest);
+		}
+	}
+
+	private void Swap(int[] a, int x, int y)
+	{
+		int temp = a[x];
+		a[x] = a[y];
+		a[y] = temp;
+	}
+}
+
+
+
+//Test
+
+int[] numbers = new int[] {-1,2,3,5,1,2,8};
+Dump(numbers, "Numbers");
+new HeapSort().Sort(numbers);
+Dump(numbers, "Sorted");
+
+
+	
